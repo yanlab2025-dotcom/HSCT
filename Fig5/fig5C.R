@@ -8,7 +8,7 @@ library(patchwork)
 library(scales)     
 load("Fig5.RData")
 ############################################################################
-# pick a nice color palette
+# pick a color palette
     gradient_colors <- colorRampPalette(c("#232268", "#218029", "yellow"))
 
 # PCoA plot
@@ -64,7 +64,7 @@ load("Fig5.RData")
         return(p)
       })
 
-# combine all plots
+# combine stacked bar plots
     p <- wrap_plots(plotlist = plot_list, ncol = 1)
     print(p)
     pcoa_plot / p  
