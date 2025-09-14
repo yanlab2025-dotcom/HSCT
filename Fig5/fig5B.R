@@ -1,4 +1,4 @@
-#############This is data for Fig 5B###############
+#############This is data for Fig 5b##############
 rm(list = ls())
 library(ggplot2)
 library(dplyr)
@@ -40,7 +40,7 @@ load("Fig5.RData")
           name = "Effect size"
         ) +
         scale_size_manual(values = size_values) +
-        scale_alpha_identity() +  # 使用固定的alpha值
+        scale_alpha_identity() +  
         theme_classic() +
         coord_cartesian(clip = "off") + 
         facet_nested(as.formula(paste(". ~", facet_var)), 
