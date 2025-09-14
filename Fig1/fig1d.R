@@ -1,4 +1,4 @@
-###############This is data for Fig 1D####
+###############This is data for Fig 1d####
 rm(list = ls())
 library(vegan)
 library(survival)   
@@ -53,4 +53,5 @@ load("Fig1.RData")
         ncol = 1, 
         align = "v", 
         rel_heights = c(3, 1))
+
       Fig1D
