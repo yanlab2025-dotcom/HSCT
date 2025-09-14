@@ -1,4 +1,4 @@
-###########This is data for Fig 6A_B#####################
+###########This is data for Fig 6a_b#####################
 rm(list=ls()) 
 library(pROC)
 library(ggplot2)
@@ -73,7 +73,7 @@ for (model_name in names(annotation_texts)) {
   Fig6A <- Fig6A + annotate("text", x = 0.6, y = ann$y, label = ann$text,
                             color = model_colors[ann$text], size = 3.2, hjust = 0)
 }
-Fig6A
+Fig6a
 ###############################################################################
 #ROC objects for testing set models
       roc_list <- list(
@@ -144,4 +144,4 @@ Fig6A
         Fig6B <- Fig6B + annotate("text", x = 0.6, y = ann$y, label = ann$text,
                             color = model_colors[ann$text], size = 3.2, hjust = 0)
       }
-      Fig6B
+      Fig6b
