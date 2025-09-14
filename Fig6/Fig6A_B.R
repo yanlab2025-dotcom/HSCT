@@ -73,7 +73,7 @@ for (model_name in names(annotation_texts)) {
   Fig6A <- Fig6A + annotate("text", x = 0.6, y = ann$y, label = ann$text,
                             color = model_colors[ann$text], size = 3.2, hjust = 0)
 }
-Fig6a
+  Fig6a
 ###############################################################################
 #ROC objects for testing set models
       roc_list <- list(
