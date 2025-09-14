@@ -1,4 +1,4 @@
-###########This is data for Fig 5C###############
+###########This is data for Fig 5c###############
 rm(list = ls())
 library(ggplot2)   
 library(dplyr)      
