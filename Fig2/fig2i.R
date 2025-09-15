@@ -1,4 +1,4 @@
-###############This is data for Fig 2I####
+###############This is data for Fig 2i####
 rm(list = ls())
 library(readr)
 library(dplyr)
@@ -88,7 +88,7 @@ load("Fig2.RData")
     dna.pco2 <- as.integer( pcoa.pwy.bug.DNA$eig/sum(pcoa.pwy.bug.DNA$eig) * 100 )[2]
 
 #PCoA generation
-    Fig2I <- ggplot(scores.pwy.DNA_meta_top25_shannon, aes(PCo1, PCo2)) +
+    Fig2i <- ggplot(scores.pwy.DNA_meta_top25_shannon, aes(PCo1, PCo2)) +
       geom_point(aes(fill = IN_Shannon, shape = factor(AUS_group)), size = 2.5, color = "black") +
       geom_label_repel(
         data = vec.sp.df,
@@ -151,4 +151,5 @@ load("Fig2.RData")
       )+
       xlab(paste0("PCo1 (", dna.pco1, "%)")) +
       ylab(paste0("PCo2 (", dna.pco2, "%)"))
-     print(Fig2I)
+     print(Fig2i)
+
