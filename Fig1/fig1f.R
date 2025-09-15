@@ -1,4 +1,4 @@
-###############This is data for Fig 1F######
+###############This is data for Fig 1f######
 rm(list = ls())
 library(dplyr)
 library(ggplot2)
@@ -53,7 +53,7 @@ load("Fig1.RData")
       legend_shape = "square"))
     
 #figure generation
-    Fig1F <- Heatmap(
+    Fig1f <- Heatmap(
       matrix_data,
       name = "Days", 
       col = color_palette, 
@@ -67,4 +67,5 @@ load("Fig1.RData")
       column_dend_gp = gpar(lwd = 0.5),
       heatmap_legend_param = list(title_gp = gpar(fontsize = 8)),
       right_annotation = row_annotation)
-    draw(Fig1F)
+
+    draw(Fig1f)
