@@ -1,4 +1,4 @@
-###############This is Figure 2J####
+###############This is Figure 2j####
 rm(list = ls())
 library(readxl)
 library(dplyr)
@@ -63,7 +63,7 @@ load("Fig2.RData")
       head(10)  
 
 #figure generation
-    Fig2J <- ggplot(DEG_df_In, aes(x = logFC, y = -log10(adj.P.Val), fill = AMR_Gene_Family)) +
+    Fig2j <- ggplot(DEG_df_In, aes(x = logFC, y = -log10(adj.P.Val), fill = AMR_Gene_Family)) +
       geom_point(alpha = 0.8, size = 2, shape = 21) +  
       scale_fill_manual(
         values = family_colors,
@@ -116,5 +116,6 @@ load("Fig2.RData")
       ) +
       ylim(c(0, max(-log10(DEG_df_In$adj.P.Val))))
     dev.new() 
-    print(Fig2J)
+    print(Fig2j)
+
     
