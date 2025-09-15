@@ -143,7 +143,8 @@ load("Fig5.RData")
     p2 <- plot_dot_effectsize(plot_data_low)
     
     #Combine plots
-    Fig5B <- (p1 / p2) + 
+    Fig5b <- (p1 / p2) + 
       plot_layout(guides = "collect") & 
       theme(legend.position = "right")
-    Fig5B
+
+    Fig5b
