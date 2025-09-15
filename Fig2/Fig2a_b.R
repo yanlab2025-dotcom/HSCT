@@ -1,4 +1,4 @@
-###############This is data for Fig 2A_B####
+###############This is data for Fig 2a_b####
 rm(list = ls())
 library(vegan)      
 library(survival)  
@@ -147,7 +147,7 @@ load("Fig2.RData")
     )
 ##################################################
 #figure generation
-    Fig2A_B <- Heatmap(
+    Fig2a_b <- Heatmap(
       log10_top25_clustered_matrix, 
       cluster_columns = FALSE, 
       cluster_rows = TRUE, 
@@ -158,4 +158,4 @@ load("Fig2.RData")
       right_annotation = prevalence_annotation, 
       col = heatmap_colors, 
       show_heatmap_legend = T)
-    draw(Fig2A_B)  
+    draw(Fig2a_b)  
