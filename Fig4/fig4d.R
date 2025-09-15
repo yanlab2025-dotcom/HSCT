@@ -1,4 +1,4 @@
-###############This is data for Fig 4D#######
+###############This is data for Fig 4d#######
 rm(list=ls()) 
 library(ggplot2)
 library(readxl)
@@ -137,4 +137,5 @@ load( "Fig4.RData")
 
 # Combine Plots 
     Fig4D <- (p1+p2)+plot_layout(widths = c(2, 1.5))
+
     Fig4D
