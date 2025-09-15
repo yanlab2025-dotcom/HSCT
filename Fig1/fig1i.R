@@ -1,4 +1,4 @@
-###############This is data for Fig 1I#######
+###############This is data for Fig 1i#######
 rm(list = ls())
 library(dplyr)
 library(ggplot2)
@@ -21,7 +21,7 @@ load("Fig1.Rdata")
 #figure generation
 #q_value < 0.05 ~ "*"
 #q_value < 0.25  ~ "."
-    Fig1I <- ggplot(df_all, aes(x = Variable, y = Marker)) +
+    Fig1i <- ggplot(df_all, aes(x = Variable, y = Marker)) +
       geom_tile(aes(fill = Correlation), color = "white", width = 1, height = 1) +
       geom_text(aes(label = Signif), size = 5, color = "black") + 
       scale_fill_gradient2(
@@ -41,4 +41,5 @@ load("Fig1.Rdata")
         axis.ticks.length = unit(0.1, "cm"),
         legend.position = "right"
       ) 
-    Fig1I
+
+    Fig1i
