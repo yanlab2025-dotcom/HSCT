@@ -1,4 +1,4 @@
-###########This is data for Fig5A###############
+###########This is data for Fig5a###############
 rm(list = ls())
 library(ggplot2)   
 library(dplyr)      
@@ -8,7 +8,82 @@ library(patchwork)
 library(scales)  
 load("Fig5.RData")
 ############################################################################
+#---------------------------Mediation analysis-------------
+result <- expand.grid(AES = "AUS", 
+                      colnames =  unique(colnames(dt_species)),
+                      #a="Pseudomonas_aeruginosa",
+                      outcome = c("PFS"))
+
+
+colnames(result) <- c("ABX", "dt_species", "outcome")
+set.seed(123)
+for (i in 1: nrow(result)) { 
+  tryCatch({
+    data <- data.frame(
+      cbind(
+        dt_log[, as.character(result$dt_species[i])],
+        diseases[, as.character(result$outcome[i])],
+        Abx_use_filtered[, as.character(result$ABX[i])],
+        cov
+      )
+    )
+    data[is.na(data)] <- "0"
+    colnames(data) <- c("Mic", "outcome", "Abx", "Age","Gender", "BMI", "Disease_group")
+    data$Mic <- as.numeric(data$Mic)
+    data$Abx <- as.factor(data$Abx)
+    data$Age <- as.numeric(data$Age)
+    data$Gender <- as.factor(data$Gender)
+    data$Disease_group <- as.factor(data$Disease_group)
+    data$outcome <- as.factor(data$outcome)
+    
+    # med
+    model.m <- glm(Mic ~ Abx+Age + Gender + BMI,
+                   data = data, family = gaussian(link = "identity")) 
+    model.y <- glm(outcome ~ Abx + Mic+Age + Gender + BMI,
+                   data = data, family = binomial(link = "logit")) 
+    med <- mediate(model.m, model.y, treat = "Abx", mediator = "Mic", 
+                   sims = 500, boot = TRUE, 
+                   
+                   control.value = "low_score", treat.value = "high_score",
+                   boot.ci.type = "bca")
+    med.summary <- summary(med)
+    
+    result$Pval_mediate[i] <- med.summary$d.avg.p
+    result$coef_mediate[i] <- med.summary$d.avg
+    result$coefCI_mediate_low[i] <- ifelse(length(med.summary$d.avg.ci) == 2, med.summary$d.avg.ci[1], NA)  
+    result$coefCI_mediate_high[i] <- ifelse(length(med.summary$d.avg.ci) == 2, med.summary$d.avg.ci[2], NA)  
+    
+    result$Pval_direct[i] <- med.summary$z.avg.p
+    result$coef_direct[i] <- med.summary$z.avg
+    result$coefCI_direct_low[i] <- ifelse(length(med.summary$z.avg.ci) == 2, med.summary$z.avg.ci[1], NA)  
+    result$coefCI_direct_high[i] <- ifelse(length(med.summary$z.avg.ci) == 2, med.summary$z.avg.ci[2], NA)  
+    
+    result$Pval_total[i] <- med.summary$tau.p
+    result$coef_total[i] <- med.summary$tau.coef
+    result$coefCI_total_low[i] <- ifelse(length(med.summary$tau.ci) == 2, med.summary$tau.ci[1], NA)  
+    result$coefCI_total_high[i] <- ifelse(length(med.summary$tau.ci) == 2, med.summary$tau.ci[2], NA)  
+    
+    result$Pval_ratio[i] <- med.summary$n.avg.p
+    result$coef_ratio[i] <- med.summary$n.avg
+    result$coefCI_ratio_low[i] <- ifelse(length(med.summary$n.avg.ci) == 2, med.summary$n.avg.ci[1], NA)  
+    result$coefCI_ratio_high[i] <- ifelse(length(med.summary$n.avg.ci) == 2, med.summary$n.avg.ci[2], NA)  
+    
+    
+    print(paste("Iteration", i, "completed successfully."))
+    
+  }, error = function(e) {
+    message(paste("Iteration", i, "failed with error:", e$message))
+  })
+}
+
+getwd()
+result$Qval_mediate=p.adjust(result$Pval_mediate,method = "BH")
+############################################################################
 # data input preparation 
+    filtered_AUS <- result[result$Pval_mediate < 0.05, ]
+
+    filtered_AUS <- filtered_AUS[order(abs(filtered_AUS[, 3]), decreasing = FALSE), ]
+
     filtered_AUS <- filtered_AUS[order(abs(filtered_AUS[, 3]), decreasing = FALSE), ]
     filtered_AUS <- filtered_AUS %>%
       mutate(
@@ -66,5 +141,5 @@ load("Fig5.RData")
     p
 
 # combine plots
-    Fig5A <- grid.arrange(p_med, p, ncol = 2, widths = c(1, 0.6))  
-    Fig5A
+    Fig5a <- grid.arrange(p_med, p, ncol = 2, widths = c(1, 0.6))  
+    Fig5a
