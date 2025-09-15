@@ -5,7 +5,7 @@ library(ggplot2)
 library(scales)
 library(gridExtra)
 load("Fig3.RData")
-###############################################################################
+##############################This is data for Fig 3c#################################################
 #data input preparation
     col <- c(
           "g__Burkholderia" = alpha("#ff1f00", 0.75),  
@@ -105,4 +105,5 @@ load("Fig3.RData")
             axis.text = element_blank(),
             axis.ticks = element_blank()
       )
+
      print(Post_HSCT_tsne)
