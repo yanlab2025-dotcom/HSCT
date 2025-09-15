@@ -1,3 +1,4 @@
+###############This is data for Fig 3e############### 
 ######This plot shows the expression of B cells across Pre-HSCT clusters####
 rm(list = ls())
 library(tidyverse)
@@ -73,7 +74,7 @@ load("Fig3.RData")
     )
 
 #figure generation
-    Fig3E_CD8_effector_T_cells <- ggplot(CD8_effector_T_cells, aes(x = Cluster, y = Count, fill = Cluster)) +
+    Fig3e_CD8_effector_T_cells <- ggplot(CD8_effector_T_cells, aes(x = Cluster, y = Count, fill = Cluster)) +
       sm_raincloud(
         boxplot.params = list(outlier.shape = NA, width = 0.7),
         point.params = list(alpha = 0.8, size = 3, shape = 21,stroke = 0.1),  
@@ -96,4 +97,5 @@ load("Fig3.RData")
         axis.ticks.length = unit(0.1, "cm")
       )+labs(y = "Cell count") +   
       facet_wrap(~ Cell_Type, scales = "free_y") 
-    Fig3E_CD8_effector_T_cells
+
+    Fig3e_CD8_effector_T_cells
