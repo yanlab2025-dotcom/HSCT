@@ -1,4 +1,4 @@
-#############This is data for Fig 5D###############
+#############This is data for Fig 5d###############
 rm(list = ls())
 library(ggplot2)
 library(showtext)
@@ -59,5 +59,6 @@ load("Fig5.RData")
         plot_list[[paste(species, cell, sep = "_")]] <- Fig5D
          }
       }
-      Fig5D <- wrap_plots(plot_list, ncol = 2)
-      Fig5D
+      Fig5d <- wrap_plots(plot_list, ncol = 2)
+
+      Fig5d
