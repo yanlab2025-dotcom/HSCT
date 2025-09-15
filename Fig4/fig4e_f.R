@@ -1,4 +1,4 @@
-###############This is data for Fig 4E_F#######
+###############This is data for Fig 4e_f#######
 rm(list=ls()) 
 library(vegan)     
 library(tidyr)
@@ -22,7 +22,7 @@ load("Fig4.RData")
     }
 
 #figure generation
-    Fig4E <- ggplot(acti_data_filtered, aes(x = start_diff, xend = stop_diff, y = Antibiotic_1, yend = Antibiotic_1, color = In_out)) +
+    Fig4e <- ggplot(acti_data_filtered, aes(x = start_diff, xend = stop_diff, y = Antibiotic_1, yend = Antibiotic_1, color = In_out)) +
       geom_segment(size = 1) +  
       geom_vline(aes(xintercept = 0, linetype = "Tx_date"), color = "darkgreen", size = 0.33) +  
       geom_vline(aes(xintercept = Sampling_date_diff, linetype = "Sampling_Date"), color = "purple", size = 0.33) +  # Sampling_Date
@@ -60,7 +60,7 @@ load("Fig4.RData")
         axis.ticks.y = element_line(size = 0.33, colour = "black"),   
         axis.ticks.length = unit(0.1, "cm") 
       ) 
-    print(Fig4E)
+    print(Fig4e)
 #####################################################################################
 #data input preparation
     plot_taxa_flow <- function(subject_id, matched_rows_combined, custom_colors) {
@@ -136,4 +136,5 @@ load("Fig4.RData")
     }
     plot_list[["P131"]]
     plot_list[["P039"]]
+
     plot_list[["P077"]]
