@@ -1,4 +1,4 @@
-###############This is data for Fig 1E####
+###############This is data for Fig 1e####
 rm(list = ls())
 library(dplyr)
 library(lubridate)
@@ -41,4 +41,5 @@ load("Fig1.RData")
             axis.line = element_line(size = 0.33),
             axis.ticks.length = unit(0.1, "cm"),
             axis.ticks = element_line(color = "black", size = 0.33))
+
     Fig1E
