@@ -1,4 +1,4 @@
-###############This is data for Fig 3B###############
+###############This is data for Fig 3b###############
 rm(list = ls())
 library(ggplot2)
 library(grid)
@@ -22,7 +22,7 @@ load("Fig3.RData")
     )
 
 #figure generation
-    Fig3B <- ggplot(stab_rbind, aes(x = group, y = log_stability, fill = group)) +
+    Fig3b <- ggplot(stab_rbind, aes(x = group, y = log_stability, fill = group)) +
       geom_jitter(color = "#A9A9A9",size=1,shape=16,alpha=0.75) +
       geom_boxplot(color = "black",outlier.shape = NA,lwd=0.5,fatten = 1) +  
       labs(x = "Cluster", y = "log(community stability)") +
@@ -40,4 +40,5 @@ load("Fig3.RData")
             axis.ticks = element_line(color = "black", size = 0.33),  
             axis.ticks.length = unit(0.1, "cm") ,
             legend.position = "none")
-    Fig3B
+
+    Fig3b
