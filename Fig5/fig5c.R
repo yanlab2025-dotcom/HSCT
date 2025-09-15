@@ -67,4 +67,6 @@ load("Fig5.RData")
 # combine stacked bar plots
     p <- wrap_plots(plotlist = plot_list, ncol = 1)
     print(p)
-    pcoa_plot / p  
+
+   Fig5c<- pcoa_plot / p  
+   Fig5c
