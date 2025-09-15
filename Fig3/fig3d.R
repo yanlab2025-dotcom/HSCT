@@ -1,4 +1,4 @@
-###############This is data for Fig 3D#######
+###############This is data for Fig 3d#######
 rm(list=ls()) 
 library(ggplot2)
 library(readxl)
@@ -35,6 +35,7 @@ ht <- Heatmap(
   
 )
 
-pdf("Fig3D.pdf", width = 5, height = 6)
+pdf("Fig3d.pdf", width = 5, height = 6)
 draw(ht)
 dev.off()
+
