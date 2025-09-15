@@ -1,4 +1,4 @@
-###############This is data for Fig 3F##########
+###############This is data for Fig 3f##########
 rm(list = ls())
 library(survival)
 library(survminer)
@@ -56,4 +56,5 @@ load("Fig3.RData")
       align = "v",
       rel_heights = c(3, 1.4)
     )
+
     combined_plot
