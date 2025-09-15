@@ -5,7 +5,7 @@ library(reshape2)
 library(ggplot2)
 load("Fig4.RData")
 #####################################################################################
-# pick a nice color palette
+# pick a color palette
     my_col <- colorRampPalette(c("white","#ffffe0", "#c7e9b9","#c7e9b1", "#7fcdbb", "#41b6c4", "#2c7fb8", "#253494"))(100)
 
 #figure generation
@@ -25,3 +25,4 @@ load("Fig4.RData")
       coord_fixed()
 
     Fig4c
+
