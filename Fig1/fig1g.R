@@ -1,4 +1,4 @@
-###############This is data for Fig 1G#######
+###############This is data for Fig 1g#######
 rm(list = ls())
 library(dplyr)
 library(ggplot2)
@@ -15,7 +15,7 @@ load("Fig1.RData")
     AUS_median <- median(summarized_data$AUS, na.rm = TRUE)
 
 #figure generation
-    Fig1G <-ggplot(data = summarized_data, aes(x = AUS)) + 
+    Fig1g <-ggplot(data = summarized_data, aes(x = AUS)) + 
       geom_histogram(aes(y = ..density..), binwidth = 200, fill = "#333333", alpha = 0.3) + 
       geom_density(fill = "#4682B4", alpha = 0.6) + 
       geom_vline(aes(xintercept = AUS_median), color = "#FF0000", linetype = "dashed") + 
@@ -31,4 +31,5 @@ load("Fig1.RData")
             axis.line.y = element_line(size = 0.33),
             panel.grid = element_blank(),             
             axis.line = element_line(color = "black", linewidth = 0.8))
-    Fig1G
+
+    Fig1g
