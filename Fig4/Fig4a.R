@@ -1,11 +1,11 @@
-###############This is data for Fig 4A#######
+###############This is data for Fig 4a#######
 rm(list=ls()) 
 library(ggplot2)
 library(grid)
 load("Fig4.RData")
 #####################################################################################
 #figure generation
-    Fig4A <- ggplot(data = fig4a_data, aes(x = reorder(clinical, R2), y = R2, fill = Group)) +
+    Fig4a <- ggplot(data = fig4a_data, aes(x = reorder(clinical, R2), y = R2, fill = Group)) +
       geom_bar(stat = "identity", position = position_dodge()) + 
       geom_text(
         aes(
@@ -36,4 +36,4 @@ load("Fig4.RData")
         axis.ticks = element_line(color = "black", size = 0.33),   
         axis.ticks.length = unit(0.1, "cm")                       
       )
-    Fig4A
+    Fig4a
