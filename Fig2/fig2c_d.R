@@ -1,4 +1,4 @@
-###############This is data for Fig 2C_D####
+###############This is data for Fig 2c_d####
 rm(list = ls())
 library(Rtsne)
 library(ggplot2)
@@ -98,5 +98,6 @@ load("Fig2.RData")
         ggtitle(var)
       pcoa_plots[[var]] <- p
     }
-    Fig2C_D <- plot_grid(plotlist = pcoa_plots, ncol = 3, align = "hv")
-    Fig2C_D
+    Fig2c_d <- plot_grid(plotlist = pcoa_plots, ncol = 3, align = "hv")
+
+    Fig2c_d
