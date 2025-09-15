@@ -1,4 +1,4 @@
-###############This is data for Fig 1H######
+###############This is data for Fig 1h######
 rm(list = ls())
 library(readxl)
 library(dplyr)
@@ -49,5 +49,6 @@ load("Fig1.RData")
         ),
       palette = c("#08306b","#93C6E1FF")   
     )
-    Fig1H <- plot_grid(km_plot$plot, km_plot$table, ncol = 1, align = "v", rel_heights = c(2, 1))
-    Fig1H
+    Fig1h <- plot_grid(km_plot$plot, km_plot$table, ncol = 1, align = "v", rel_heights = c(2, 1))
+
+    Fig1h
