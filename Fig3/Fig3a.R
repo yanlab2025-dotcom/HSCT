@@ -1,4 +1,4 @@
-###############This is data for Fig 3A###################
+###############This is data for Fig 3a###################
 rm(list = ls())
 library(ggplot2)
 library(vegan)
@@ -23,7 +23,7 @@ load("Fig3.RData")
       )
 
 #figure generation
-    Fig3A <- ggplot(qqq, aes(x = x, 
+    Fig3a <- ggplot(qqq, aes(x = x, 
                     next_x = next_x, 
                     node = node, 
                     next_node = next_node,  
@@ -49,4 +49,4 @@ load("Fig3.RData")
           legend.key.size = unit(0.5, "cm")) +
     theme(panel.grid = element_blank()) +
     theme(legend.justification = "left", legend.position = "right")
-    Fig3A
+    Fig3a
