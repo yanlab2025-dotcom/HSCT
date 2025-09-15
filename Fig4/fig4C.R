@@ -1,4 +1,4 @@
-###############This is data for Fig 4C#######
+###############This is data for Fig 4c#######
 rm(list=ls()) 
 library(dplyr)
 library(reshape2)
@@ -9,7 +9,7 @@ load("Fig4.RData")
     my_col <- colorRampPalette(c("white","#ffffe0", "#c7e9b9","#c7e9b1", "#7fcdbb", "#41b6c4", "#2c7fb8", "#253494"))(100)
 
 #figure generation
-    Fig4C <- ggplot(dat_upper, aes(x = Var2, y = Var1, fill = Correlation)) +
+    Fig4c <- ggplot(dat_upper, aes(x = Var2, y = Var1, fill = Correlation)) +
       geom_tile(color = "white") +
       geom_text(aes(label = round(Correlation, 2)), color = "black", size = 3) +
       geom_text(aes(label = sig_label), vjust = -0.2, color = "black", size = 3) +
@@ -23,4 +23,5 @@ load("Fig4.RData")
         plot.caption = element_text(hjust = 0.5, size = 14, face = "bold")
       ) +
       coord_fixed()
-    Fig4C
+
+    Fig4c
